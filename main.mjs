@@ -8,7 +8,7 @@ container.addEventListener("click", (event) => {
 
   // brief visual feedback
   key.classList.add("pressed");
-  setTimeout(() => key.classList.remove("pressed"), 200);
+  setTimeout(() => key.classList.remove("pressed"), 800);
 
   const action = key.dataset.action;
 
@@ -21,10 +21,7 @@ container.addEventListener("click", (event) => {
   }
 
   // Space: append a non-breaking space
-  if (action === "space") {
-    choices.appendChild(document.createTextNode(" "));
-    return;
-  }
+  // (space is now treated as a regular symbol via data-symbol on the button)
 
   // Regular key: use the data-symbol from HTML (single source of truth)
   const symbol = key.dataset.symbol || key.textContent.trim() || "";
